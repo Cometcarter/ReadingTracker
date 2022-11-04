@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Reading Tracker</title>
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="font-awesome.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&family=Rock+Salt&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li>Home</li>
+      <li>Favorites</li>
+    </ul>
+  </nav>
+  <div class="container">
+    <h1>Reading Tracker</h1>
+    <h2>Enter your reading list below</h2>
+
+    <form action="/books" method="POST">
+      <input type="text" placeholder="Title" name="title">
+      <input type="text" placeholder="Author" name="author">
+      <input type="text" placeholder="Link to image of Book Cover" name="link">
+      <button type="submit">Submit</button>
+    </form>
+
+    <ul class="bookrec">
+      <% for(var i=0; i<bookrec.length; i++) {%>
+        <li class="message">
+          <img src="<%= bookrec[i].link %>">
+          <span>
+            <%= bookrec[i].title%>
+          </span>
+          <span>
+            <%= bookrec[i].author%>
+          </span>
+          <div>
+            <% if (bookrec[i].rating==0){%>
+              <input type="radio" name="ratingchoice" value="1">1
+              <input type="radio" name="ratingchoice" value="2">2
+              <input type="radio" name="ratingchoice" value="3">3
+              <input type="radio" name="ratingchoice" value="4">4
+              <input type="radio" name="ratingchoice" value="5">5
+              <button type="button" class="rating-btn">Submit Rating</button>
+              <% } else { %>
+                <span>
+                  rating: <%= bookrec[i].rating%>
+                </span>
+                <% } %>
+                  <button type="submit" class="fav-btn">Add to Favorite</button>
+                  <span><i class="fa fa-trash" aria-hidden="true"></i></span>
+          </div>
+        </li>
+        <% } %>
+    </ul>
+  </div>
+
+  <script src="main.js"></script>
+
+</body>
+
+</html>

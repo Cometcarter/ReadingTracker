@@ -15,8 +15,8 @@
 <body>
     <nav>
         <ul>
-            <li>Home</li>
-            <li>Favorites</li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/favorite">Favorites</a></li>
         </ul>
     </nav>
     <div class="container">
@@ -36,13 +36,16 @@
             <tbody>
                 <% for(var i=0; i<bookrec.length; i++) {%>
                     <tr>
-                        <td>bookrec: <%= bookrec[i].title %>
+                        <td>
+                            <%= bookrec[i].title %>
                         </td>
-                        <td>bookrec: <%= bookrec[i].author %>
+                        <td>
+                            <%= bookrec[i].author %>
                         </td>
                         <td><img src="<%= bookrec[i].link %>">
                         </td>
-                        <td>bookrec: <%= bookrec[i].rating %>
+                        <td>
+                            <%= bookrec[i].rating %>
                         </td>
                     </tr>
                     <% } %>

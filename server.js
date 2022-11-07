@@ -66,7 +66,7 @@ app.get('/favorite', (req, res) => {
       favorite: true
     })
     .toArray((err, result) => {
-      result.sort((a, b) => parseFloat(b.upVote) - parseFloat(a.upVote));
+      // result.sort((a, b) => parseFloat(b.upVote) - parseFloat(a.upVote));
       if (err) return console.log(err)
       console.log(result)
       res.render('favorite.ejs', { bookrec: result })
